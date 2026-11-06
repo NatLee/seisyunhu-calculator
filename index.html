@@ -1,96 +1,31 @@
-<html>
-
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>青春譜消費計算機🤏</title>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script type="text/javascript" src="js/price.js"></script>
-    </head>
-
-    <body>
-
-        <p1>包廂消費方式</p1>
-
-        <form>
-            <p>人數</p><br>
-            <input type="number" name="people" min="1" step="1" value="1"><br>
-            <p>* 人數若多於3人，第四人開始按入場時間加價一次</p>
-            <p>* 若攜酒精飲料入場，則各場次標準人數費用多加 1 人或多人</p>
-
-            每小時<br>
-            平日16:00以前 220 元<br>
-            平日16:00以後 250 元<br>
-            假日全日 280 元
-            <br>
-
-            <p>時間</p><br>
-
-            <label>
-                <input type="radio" name="week-time" checked="checked" id="no_vacation">
-                非假日
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="week-time" id="vacation">
-                假日
-            </label>
-
-            <br><br>
-
-            入場時間 
-            <div>
-                <input type="number" id="enter-time" min="0" max="23" value="12">:
-                <input type="number" min="0" max="59" placeholder="00">
-            </div>
-            
-            <br>
-            退場時間
-            <div>
-                <input type="number" id="out-time" min="0" max="23" value="18">:
-                <input type="number" min="0" max="59" placeholder="00">
-            </div>
-
-
-            <br>
-
-
-            <p>機種</p><br>
-
-            <label>
-                <input type="radio" name="machine" checked="checked" id="crosso_g5000">
-                Joysound CROSSO 或 DAM G5000
-                <br>
-                    每小時按入場時間<br>
-                    平日16:00以前 230 元<br>
-                    平日16:00以後 280 元<br>
-                    假日全日 340 元
-            </label>
-
-            <br><br>
-
-            <label>
-                <input type="radio" name="machine" id="f1_g8000">
-                Joysound F1 或 DAM G8000
-                <br>
-                    每小時按入場時間<br>
-                    平日16:00以前 300 元<br>
-                    平日16:00以後 340 元<br>
-                    假日全日 420 元
-            </label>
-
-            <br><br>
-
-            <p>優惠每小時折價(元)</p><br>
-            <input type="number" id="discount" min="0" step="10" value="0">
-
-            <br><br>
-
-            <button onclick="calPrice()" type="button">送出</button>
-        </form>
-
-        <p>* 本功能爲輔助評估消費金額，最後還是以老闆計算爲準</p>
-
-    </body>
-
-
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="青春譜歷史費率計算機，保留 2021 年規則供參考與程式示範。">
+  <title>青春譜消費計算機 · 歷史費率</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/price.js" defer></script>
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">SEISYUNHU / ARCHIVE</p><h1>青春譜消費計算機</h1><p>重算一段唱歌的時光。</p></header>
+  <aside><strong>這是 2021 年歷史費率，並非現行報價。</strong><br>最新價格請查閱 <a href="https://www.seisyunhu.com/">青春譜官方網站</a>或向店家確認。此工具只支援整點、同日計算。</aside>
+  <form onsubmit="event.preventDefault(); calPrice()">
+    <div class="grid">
+      <label>人數<input required type="number" name="people" min="1" step="1" value="3"></label>
+      <label>每小時折價（元）<input required type="number" id="discount" min="0" step="1" value="0"></label>
+      <label>入場時間（整點）<input required type="number" id="enter-time" min="9" max="22" step="1" value="12"></label>
+      <label>退場時間（整點）<input required type="number" id="out-time" min="10" max="23" step="1" value="18"></label>
+    </div>
+    <fieldset><legend>場次</legend><label><input type="radio" name="week-time" id="no_vacation" checked> 平日</label><label><input type="radio" name="week-time" id="vacation"> 假日</label></fieldset>
+    <fieldset><legend>機種</legend><label><input type="radio" name="machine" id="crosso_g5000" checked> CROSSO / G5000</label><label><input type="radio" name="machine" id="f1_g8000"> F1 / G8000</label></fieldset>
+    <button type="submit">計算歷史金額 →</button>
+    <output id="result" aria-live="polite">選好時段後，即可計算。</output>
+  </form>
+  <details><summary>歷史計價規則與限制</summary><p>平日依入場時間決定整段費率；假日早場為包段價，不滿三人仍以三人計。一般場第四人起加收一次人頭費，折價只適用一般場，最多折至零。跨夜、酒精加價與非整點均不在計算範圍內。</p><p>完整費率與測試案例請見 <a href="https://github.com/NatLee/seisyunhu-calculator#historical-rates">GitHub 文件</a>。</p></details>
+  <footer>此專案為歷史程式展示；實際消費以店家確認為準。</footer>
+</main>
+</body>
 </html>
