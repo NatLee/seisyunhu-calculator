@@ -1,6 +1,6 @@
 # Seisyunhu Calculator · 青春譜歷史費率計算機
 
-![Seisyunhu historical karaoke calculator — conceptual project cover](docs/images/cover.png)
+![Seisyunhu historical karaoke calculator — project cover](docs/images/cover.png)
 
 用人數、場次、機種與整點時間，重現原專案的 **2021 年歷史費率**。
 這是保留可操作介面的程式展示，不能作為目前店家報價。
@@ -67,4 +67,5 @@ npm test
 例如平日三人 12–14 時、CROSSO/G5000 無折價，歷史估算為 460 元；
 假日三人 9–11 時為早場 720 元。
 
-本 repo 更新後仍保留封存狀態；封面為概念插畫，非店家官方素材。
+本 repo 更新後仍保留封存狀態；封面為可編輯排版與歷史計價範例，
+[來源與匯出方式](docs/images/cover-source.md)隨專案保存。
