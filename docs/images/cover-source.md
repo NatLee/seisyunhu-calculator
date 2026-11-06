@@ -1,32 +1,24 @@
 # Editable project cover
 
-[`cover.svg`](cover.svg) is the editable source. [`cover.png`](cover.png) is the
-1600 × 800 PNG export used by the README. Shapes and text are editable SVG;
-embedded demo images keep their original source files listed below.
+[cover.svg](cover.svg) is the editable source; [cover.png](cover.png) is the
+1280 × 640 PNG used by the README (under 1 MB).
 
-## Source assets
+## Design and source
 
-- [`js/price.js`](../../js/price.js)
+The ticket uses the documented 2021 historical example: three people, weekday CROSSO/G5000, 12:00–18:00, 6 × NT$230 = NT$1,380, or NT$460 per person. It is not a current venue quote.
 
-The original demo images receive only typography, framing and scaling. The historical example evaluates the actual pricing function: three people, weekday 12:00–18:00, CROSSO/G5000 and no discount; NT$ 1,380 total, NT$ 460 each.
+Text and geometry are editable SVG. Existing demo images, screenshots and animations
+remain in their original files; only the cover composition changed.
 
 ## Export
 
-Open the SVG in a browser or vector editor. With Microsoft Edge installed:
+Open the SVG in a browser or vector editor. It uses Segoe UI, Georgia, Consolas
+and Noto Sans TC system fonts, so another computer may substitute fonts.
+The PNG preserves the reviewed appearance. With Microsoft Edge installed:
 
 ```text
-msedge --headless=new --disable-gpu --hide-scrollbars --window-size=1600,800 --screenshot=cover.png file:///absolute/path/to/cover.svg
+msedge --headless=new --disable-gpu --hide-scrollbars --window-size=1280,640 --screenshot=cover.png file:///absolute/path/to/cover.svg
 ```
 
-Run the command from a scratch directory, inspect the PNG, then copy it beside
-the SVG. Original demo images and animations are preserved unchanged; existing
-attribution remains in the README.
-
-## Decorative element
-
-[`cover-element.png`](cover-element.png) is a separate transparent object illustration.
-It is composed into the editable SVG as a small accent, with a faint dot pattern
-and theme color. It does not replace or retouch the original demo images.
-
-The final accent uses objects rather than an illustrated person. Text remains
-editable SVG, and the PNG export keeps the existing README image path.
+Render into a scratch directory, inspect the full-size image and a 320 × 160
+thumbnail, then replace the PNG beside the SVG. Keep all original demo files.
